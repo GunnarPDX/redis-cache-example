@@ -38,3 +38,8 @@ config :redis_cache_example, RedisCacheExample.Repo,
   database: "redis_cache_example_dev",
   hostname: "localhost",
   pool_size: 10
+
+config :redis_cache_example,
+  redis_host: "127.0.0.1",
+  redis_port: 6379,
+  redis_pasword: ""

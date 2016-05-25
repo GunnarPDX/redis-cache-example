@@ -18,9 +18,21 @@ defmodule RedisCacheExample.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {RedisCacheExample, []},
-     applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+     applications: app_list(Mix.env)]
   end
+
+  def app_list do
+    [:cowboy,
+     :gettext,
+     :logger,
+     :phoenix,
+     :phoenix_html,
+     :phoenix_ecto,
+     :postgrex,
+     :redix]
+  end
+
+  def app_list(_), do: app_list
 
   # Specifies which paths to compile per environment.
   defp elixirc_paths(:test), do: ["lib", "web", "test/support"]
@@ -30,13 +42,14 @@ defmodule RedisCacheExample.Mixfile do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    [{:phoenix, "~> 1.1.4"},
-     {:postgrex, ">= 0.0.0"},
+    [{:cowboy, "~> 1.0"},
+     {:gettext, "~> 0.9"},
+     {:phoenix, "~> 1.1.4"},
      {:phoenix_ecto, "~> 2.0"},
      {:phoenix_html, "~> 2.4"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
-     {:gettext, "~> 0.9"},
-     {:cowboy, "~> 1.0"}]
+     {:postgrex, ">= 0.0.0"},
+     {:redix, "0.3.6"}]
   end
 
   # Aliases are shortcut or tasks specific to the current project.
