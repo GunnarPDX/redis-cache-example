@@ -32,6 +32,7 @@ defmodule RedisCacheExample.Mixfile do
      :redix]
   end
 
+  def app_list(:dev), do: [:faker | app_list]
   def app_list(_), do: app_list
 
   # Specifies which paths to compile per environment.
@@ -43,6 +44,7 @@ defmodule RedisCacheExample.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [{:cowboy, "~> 1.0"},
+     {:faker, "~> 0.5", only: :dev},
      {:gettext, "~> 0.9"},
      {:phoenix, "~> 1.1.4"},
      {:phoenix_ecto, "~> 2.0"},

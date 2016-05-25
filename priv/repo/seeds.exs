@@ -1,11 +1,3 @@
-# Script for populating the database. You can run it as:
-#
-#     mix run priv/repo/seeds.exs
-#
-# Inside the script, you can read and write to any of your
-# repositories directly:
-#
-#     RedisCacheExample.Repo.insert!(%RedisCacheExample.SomeModel{})
-#
-# We recommend using the bang functions (`insert!`, `update!`
-# and so on) as they will fail if something goes wrong.
+Code.require_file("post_with_comments_seeder.ex", "priv/repo/seeders")
+
+RedisCacheExample.PostWithCommentsSeeder.seed!
