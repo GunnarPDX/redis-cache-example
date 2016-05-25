@@ -20,7 +20,9 @@ defmodule RedisCacheExample.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", RedisCacheExample do
-  #   pipe_through :api
-  # end
+  scope "/api/v1", RedisCacheExample.Api.V1 do
+    pipe_through :api
+
+    get "/posts", PostController, :index
+  end
 end

@@ -18,6 +18,6 @@ defmodule RedisCacheExample.PostWithCommentsSeeder do
 
   defp seed_comment(post) do
     text = Faker.Lorem.paragraph()
-    Repo.insert!(%Comment{post: post, body: text})
+    Repo.insert!(%Comment{post_id: post.id, body: text})
   end
 end

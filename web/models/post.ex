@@ -3,6 +3,7 @@ defmodule RedisCacheExample.Post do
 
   alias RedisCacheExample.Repo
 
+  @derive {Poison.Encoder, only: [:title, :body, :comments]}
   schema "posts" do
     has_many :comments, RedisCacheExample.Comment
 

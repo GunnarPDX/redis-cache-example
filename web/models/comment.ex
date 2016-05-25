@@ -1,6 +1,7 @@
 defmodule RedisCacheExample.Comment do
   use RedisCacheExample.Web, :model
 
+  @derive {Poison.Encoder, only: [:body]}
   schema "comments" do
     belongs_to :post, RedisCacheExample.Post
 
